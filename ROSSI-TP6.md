@@ -1,7 +1,7 @@
 # ROSSI Thomas
 
 # TP 6 - Gestion des disques / Tâches d’administration
-# Exercide 1
+# Exercice 1
 
 **1. Dans l’interface de configuration de votre VM, créez un second disque dur, de 5 Go dynamiquement
 alloués ; puis démarrez la VM**
