@@ -211,7 +211,9 @@ Pour étendre système fichier
 **1. Programmez une tâche qui affiche un rappel pour la réunion qui aura lieu dans 3 minutes. Vérifiez
 entre temps que la tâche est bien programmée.**
 
-
+```
+echo "Rappel réunion" | at 17:24
+```
 **2. Est-ce que le message s’est affiché ? Si la réponse est non, essayez de trouver la cause du problème (par
 exemple en vous aidant des logs, du manuel...)**
 
