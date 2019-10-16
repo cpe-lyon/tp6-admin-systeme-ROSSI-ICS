@@ -156,17 +156,55 @@ vgdisplay
 
 **5. Créez un volume logique appelé lvData occupant l’intégralité de l’espace disque disponible**
 
+```
+lvcreate -l 100%FREE -n 1vData vg_test
+```
+
 **6. Dans ce volume logique, créez une partition que vous formaterez en ext4, puis procédez comme dans
 l’exercice 1 pour qu’elle soit montée automatiquement, au démarrage de la machine, dans /data**
+
+```
+fdisk /dev/mapper/vg_test-1vData
+```
+
+crée la partition
+
+```
+mkfs.ext4 /dev/mapper/vg_test-1vData
+```
+
+Formatage
+
+Et on l'ajoute dans ```/etc/fstab``` comme fait précedement
+
 
 **7. Eteignez la VM pour ajouter un second disque (peu importe la taille pour cet exercice). Redémarrez
 la VM, vérifiez que le disque est bien présent. Puis, répétez les questions 2 et 3 sur ce nouveau disque.**
 
+FAIT 
+
 **8. Utilisez la commande vgextend <nom_vg> <nom_pv> pour ajouter le nouveau disque au groupe de
 volumes**
 
+```
+vgextend vg_test /dev/sdc1
+```
+
 **9. Utilisez la commande lvresize (ou lvextend) pour agrandir le volume logique. Enfin, il ne faut pas
 oublier de redimensionner le système de fichiers à l’aide de la commande resize2fs**
+
+
+```
+lvextend -l 100%FREE /dev/vg_test/1vData
+```
+
+Pour étendre partition
+
+```
+resize2fs /dev/vg_test/1vData
+```
+
+Pour étendre système fichier
 
 # Exercice 3
 
